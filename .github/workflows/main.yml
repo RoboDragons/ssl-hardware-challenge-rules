@@ -17,7 +17,8 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          sudo apt-get install asciidoctor ruby-asciidoctor-pdf
+          sudo apt-get install ruby
+          sudo gem install asciidoctor asciidoctor-pdf
           asciidoctor -v
           asciidoctor-pdf -v
 
