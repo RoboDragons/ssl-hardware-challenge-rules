@@ -18,11 +18,13 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo apt-get install asciidoctor ruby-asciidoctor-pdf
+          asciidoctor -v
 
-      - name: Build documents
-        run: |
-          asciidoctor -a data-uri --destination-dir output rules.adoc
-          asciidoctor-pdf --destination-dir output rules.adoc
+      - name: Build HTML
+        run: asciidoctor -a data-uri --destination-dir output --trace rules.adoc
+        
+      - name: Build PDF
+        run: asciidoctor-pdf --destination-dir output --trace rules.adoc
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.0.0
