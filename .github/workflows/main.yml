@@ -1,0 +1,31 @@
+name: Build and Publish
+
+on:
+  push:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get install asciidoctor ruby-asciidoctor-pdf
+
+      - name: Build documents
+        run: |
+          asciidoctor -a data-uri --destination-dir output rules.adoc
+          asciidoctor-pdf --destination-dir output rules.adoc
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: output # The folder the action should deploy.
