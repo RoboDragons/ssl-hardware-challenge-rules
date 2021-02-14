@@ -19,6 +19,7 @@ jobs:
         run: |
           sudo apt-get install asciidoctor ruby-asciidoctor-pdf
           asciidoctor -v
+          asciidoctor-pdf -v
 
       - name: Build HTML
         run: asciidoctor -a data-uri --destination-dir output --trace rules.adoc
