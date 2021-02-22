@@ -120,8 +120,8 @@ image:parkour.png[image,width=601,height=154]
 The following rules apply in this challenge:
 
 - The standard match rules do not apply. This means:
-- The robot is allowed to dribble the ball for more than 1m in this challenge.
-- The ball can not go out of the field.
+* The robot is allowed to dribble the ball for more than 1m in this challenge.
+* The ball can not go out of the field.
 
 - If the robot loses the ball, the robot is allowed to retrieve the ball again and continue. The time will not be paused.
 - The robot is not allowed to touch the obstacles, else the trial is considered failed.
