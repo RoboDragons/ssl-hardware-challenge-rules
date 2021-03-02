@@ -2,166 +2,165 @@
 :toc:
 :toclevels: 3
 
-== Motivation
+== ねらい
 
-A key distinguishing characteristic of the Small Size League is its tight integration of software and hardware, which is crucial to success. A purely simulated tournament may reflect the best in software, but it excludes hardware development and omits hardware-software integration. To address this gap, the SSL hardware challenges outlined in this document will be conducted alongside the virtual SSL soccer tournament for RoboCup 2021. The rules for the SSL Hardware Challenges require significantly fewer resources than a full-size SSL field setup, and takes into account the constraints identified by the SSL teams.
+The Small Size Leagueと他リーグとを区別する重要な特徴は、ソフトウェアとハードウェアのその強い結びつきにあり、これは成功（success）に必要不可欠なものである。完全なシミュレーションによる大会はソフトウェア面をよく反映する（reflect）かもしれない一方で、それはハードウェア面における開発を考慮せず、ハードウェアとソフトウェアの結びつきを無視することになる。このギャップを克服するため、RoboCup 2021にて開催されるthe virtual SSL soccer tournamentに伴い、本書に記されているthe SSL hardware challengesが行われる。The SSL Hardware Challengeの開催に当たっては、各チームにおける制約が考慮され、フルサイズのSSLフィールドの設置よりも大幅に小さいリソースが要求されることになる。
 
-== Constraints
+== 制約
 
-For all hardware challenges, the following rules apply:
+全てのハードウェア課題において、以下のルールが適用される：
 
-- All challenges will be playable on a field with 4x3m or larger.
-- Human interference is not allowed unless specified otherwise.
-- Normal division B rules apply, unless specified otherwise.
-- Teams need to run an autoRef in their lab for rule checking and evaluation.
-- The challenges will be performed live, using a video stream. Teams need to provide a camera that covers the whole field.
+- 全ての課題は4x3mかそれより大きいサイズのフィールドにて実行可能である。
+- とくに指定のない限り、人間による干渉は認められない。
+- とくに指定のない限り、division Bにおける通常のルールが適用される。
+- チームはルールの確認とパフォーマンス評価のために、autoRefを実行する必要がある。
+- 課題はストリーム動画を使用し、生放送で行われる。チームはフィールド全体を写すカメラを用意する必要がある。
 
-== Evaluation
+== 評価
 
-For each challenge, teams are ranked in order of performance. The exact scoring depends on the challenge.
+各課題において、各チームはパフォーマンスの順に（in order of performance）ランク付けされる。厳密なスコア基準は課題に依る。
 
-The algorithm for combining the scores/ranks of the challenges will be published a month before the competition at latest.
+課題のスコア/ランクを統合するためのアルゴリズムは、少なくとも大会の一か月前に公開される。
 
-A member of OC/TC will be assigned to each challenge and act as the referee. The TC may provide a tool that helps with evaluation of the challenge. The referee has the final decision of the result.
+OC/TCのメンバーは各課題を担当し、レフェリーとしての役割を担う。TCは課題評価を補助するためのツールを提供するかもしれない。このレフェリーは評価結果の最終的な決定権をもつ。
 
-== Challenges
+== 課題
 
-There will be four independent challenges. Teams are not required to participate in all challenges, but skipping one challenge will have a significant impact on the final score.
+本競技には4つの独立した課題が存在する。チームはすべての課題に参加する必要はないが、一つの課題を飛ばすことは最終スコアに多大な影響を与えることになる。
 
-=== Challenge 1: Scoring with static defenders
+=== 課題1：静的なディフェンダーを伴う得点
 
-==== Objective
+==== 目的
 
-The objective of this challenge is to score a goal from a number of static situations as fast as possible. This will test the capabilities of the robots to score goals and play passes with static defenders as fast and precisely as possible.
+この課題の目標は、様々な静的な状況でできるだけ早くゴールを決めることである。これは、ロボットが静的なディフェンダーがいる状況で、できるだけ速くかつ正確にパスやゴールを決める能力があるかどうかをテストするためのものである。
 
-==== Procedure
+==== 進行
 
-There will be ten different situations in random order that teams have to handle. The situations include the positions of the opponent robots and the ball. They will be announced a month before the competition at latest.
+本課題では、ランダムな順番の10の異なる状況が用意される。状況とは、敵チームのロボットやボールの位置を含む。これらは少なくとも大会開催の1か月前には公表される。
 
-For each situation, the following procedure applies:
+各状況において、次の進行ルールが適用される：
 
-1. The team places up to *6* opponent robots and the ball according to the given situation.
-2. Up to *3* robots of the team are placed on the middle line.
-3. A STOP command will be issued for exactly *5s* to allow the team to prepare their robots.
-4. Immediately afterwards, a *Normal Free Kick* command will be issued and the timer will start.
-5. The team has *20s* to score a goal. Afterwards, the trial is over.
+1. 参加チームは与えられた状況に沿って、最大6台の敵チームロボットとボールを配置する。
+2. 最大3台の味方チームロボットがミドルラインに配置される。
+3. 参加チームがロボットの準備をするために、STOPコマンドが厳密に5秒間発信される。
+4. すぐそのあとに、Normal Free Kickコマンドが発信され、タイマーがスタートする
+5. 参加チームにはゴールを一度決めるために20秒が与えられる。その後、trialは終了する。
 
-==== Rules
+==== ルール
 
-The following rules apply for this challenge:
+この課題においては、以下のルールが適用される：
 
-- Normal Division B match rules apply. If the team performs a foul or the ball leaves the field, the trial is over.
-- No human interference is allowed during each trial.
-- The opponent robots must be shaped like normal robots. A robot hull is sufficient, but it should stand stable.
-- The goal must be *0.7m* wide. Teams should provide a visible goal with the correct dimensions to make evaluation easier.
-- Teams need to calibrate ssl-vision for a half field with *3x4m*. This means, the full field would be *6x4m* (standard field size). The goal is on the 4m side. The actual field size can be larger, but the ball will be out of field, when leaving the ssl-vision-calibrated field (checked by an autoRef).
-- The penalty area must be *0.8x2m* in size.
+- 通常のDivision B matchルールが適用される。仮に参加チームによるファウル行為やボールのフィールドアウトが起こった場合、trialは終了する。
+- 各trialにおいて、人による干渉は認められない。
+- 敵チームのロボットは通常のロボットのような形をしてなければならない。ロボットカバーだけでも十分だが、しっかりと自立（stand stable）すべきである。
+- ゴールは幅0.7mでなければならない。チームは評価しやすくするために、正しい寸法の可視的なゴールを提供するべきである。
+- チームは3x4mのハーフ・フィールドのためにssl-visionを調整する必要がある。このことはフィールドのフルサイズは6x4m（standard field size）になることを意味する。ゴールは4mサイドに設置する。実際のフィールドサイズはこれより大きくてもよいが、ssl-visionが調整された領域から離れた場合、ボールがフィールドアウトすることとなる（checked by an autoRef）。
+- ペナルティエリアは0.8x2mでなければならない。
 
-==== Evaluation
+==== 評価
+評価ためのアルゴリズムは、少なくとも大会の一か月前に公開される。
 
-The exact algorithm for the evaluation will be published one month before the competition at latest.
+=== 課題2：競争位置（contested position）からの得点
 
-=== Challenge 2: Scoring from contested possession
+==== 目的
 
-==== Objective
+この課題における目標は、一台の静的なディフェンダーがボールに接し、ゴールを阻んでいる状況でできるだけ早くゴールを決めることにある。一台のアタッカーがディフェンダーを押すことなくボールを手中に収め、ディフェンダーの周りにボールを移動させ、そしてゴールを決める必要がある。
 
-In this challenge, the objective is to score a goal as fast as possible in a situation where a static defender is protecting the ball from its own goal while also touching the ball. A single attacker needs to get the ball into possession without pushing the defender, get it around the defender and score a goal.
+==== 進行
 
-==== Procedure
+本課題では、ランダムな順の3つの異なる状況が用意される。この状況は、ボールとアタッカー、ディフェンダーの位置を含む。これらは少なくとも大会開催の1か月前には公表される。
 
-There will be three different situations in random order that teams have to handle. The situations include the position of the defender, the attacker and the ball. They will be announced a month before the competition at latest.
+各状況において、次の進行ルールが適用される：
 
-For each situation, the following procedure applies:
+- 参加チームは与えられた状況に沿って、ボールとアタッカー、ディフェンダーを設置する。
+- FORCE STARTコマンドが発信され、タイマーがスタートする。
+- アタッカーはゴールを決めるまでに30秒が与えられる。その後、trialが終了する。
 
-- The team places the defender, the ball and the attacker according to the given situation.
-- A *FORCE START* command will be issued and the timer will start.
-- The attacker has *30s* to score a goal. Afterwards, the trial is over.
+==== ルール
 
-==== Rules
+本課題においては次のルールが適用される：
 
-The following rules apply for this challenge:
+- 通常のDivision B matchルールが適用される。仮に参加チームによるファウル行為やボールのフィールドアウトが起こった場合、trialは終了する。
+- 各trialにおいて、人による干渉は認められない。
+- 敵チームのロボットは実際のものでなければならず、動くことができる必要がある。
+- ゴールは幅0.7mでなければならない。チームは評価しやすくするために、正しい寸法の可視的なゴールを提供するべきである。
+- チームは3x4mのハーフ・フィールドのためにssl-visionを調整する必要がある。このことはフィールドのフルサイズは6x4m（standard field size）になることを意味する。ゴールは4mサイドに設置する。実際のフィールドサイズはこれより大きくてもよいが、ssl-visionが調整された領域から離れた場合、ボールがフィールドアウトすることとなる（checked by an autoRef）。
+- ペナルティエリアは0.8x2mでなければならない。
 
-- Normal Division B match rules apply. If the team performs a foul or the ball leaves the field, the trial is over.
-- No human interference is allowed during each trial.
-- The opponent robot must be a real robot, but it does need to be able to move.
-- The goal must be *0.7m* wide. Teams should provide a visible goal with the correct dimensions to make evaluation easier.
-- Teams need to calibrate ssl-vision for a half field with *3x4m*. This means, the full field would be *6x4m* (standard field size). The goal is on the 4m side. The actual field size can be larger, but the ball will be out of field, when leaving the ssl-vision-calibrated field (checked by an autoRef).
-- The penalty area must be *0.8x2m* in size.
+==== 評価
 
-==== Evaluation
+評価ためのアルゴリズムは、少なくとも大会の一か月前に公開される。
 
-The exact algorithm for the evaluation will be published one month before the competition at latest.
+=== 課題3：ドリブル
 
-=== Challenge 3: Dribbling
+==== 目的
 
-==== Objective
+参加チームのドリブル能力をテストするために、一台のロボットがボールをキープしながら、静的な敵チームが存在するフィールド中を切り抜けなければならない。本課題における目標は、最少時間内にコース（parcours）を制覇することにある。計測（timing）は、ロボットが動き始めてすぐに開始される。
 
-To test the dribbling capabilities of the team, one robot of the team must navigate through a field with static opponents, while keeping the ball. The goal of the challenge is to complete the parcours within the minimum time. The timing will start as soon as the robot starts to move.
+==== 進行
 
-==== Procedure
+参加チームは予め定義されたコース（parkour）を制覇するために、3回のtrialを与えられる。各trialにおける進行ルールは次のとおりである：
 
-The team has *three trials* to complete a predefined parkour. The procedure for each trial is as follows:
+- FORCE STARTコマンドが発信され、タイマーがスタートする。
+- 各チームは、コースを制覇するために2分間が与えられる。その後、trialは終了する。
+- 仮にロボットがコースを終了し完全に静止した場合、タイマーは止まる。
 
-- A *FORCE_START* command will be issued and the timer will start.
-- The team has *2min* to finish the parkour. Afterwards, the trial is over.
-- If the robot has finished the parkour and came to a complete stop, the timer is stopped.
+コースは以下のようなものである
 
-The parkour will look similar to
-
-- A Zigzag line.
-- Obstacles will be on a straight line.
-- Last gate needs to be passed three times.
-- Exact spacing will be published a month before the competition at latest.
+- ジグザグ線（zigzag line）
+- 障害物はまっすぐな直線上に設置
+- 終点間によるゲート（Last gate）を三度通り抜ける必要がある
+- 厳密な配置は少なくとも大会の1か月前に公表される
 
 image:parkour.png[image,width=601,height=154]
 
-==== Rules
+==== ルール
 
-The following rules apply in this challenge:
+本課題においては次のルールが適用される：
 
-- The standard match rules do not apply. This means:
-* The robot is allowed to dribble the ball for more than 1m in this challenge.
-* The ball can not go out of the field.
+- 標準的なマッチ用のルールは適用されない。これは以下のことを意味する：
+* この課題においてロボットは1m以上のドリブルをすることが認められる。
+* ボールはフィールドアウトすることができない（can not）。
 
-- If the robot loses the ball, the robot is allowed to retrieve the ball again and continue. The time will not be paused.
-- The robot is not allowed to touch the obstacles, else the trial is considered failed.
-- Teams are allowed to limit their field to 3x4m, but they don’t have to.
+- 仮にロボットがボールを失った場合、ロボットがボールを回収し、続行することが仕留められる。タイマーが止められることはない。
+- ロボットが障害物に触れることは認められず、触れた場合は（else）そのtrialが失敗とみなされる。
+- チームは各々のフィールドを3x4mに制限することができるが、する義務はない。
 
-==== Evaluation
+==== 評価
 
-The fastest trial per team is taken for overall scoring.
+チーム結果の中で一番早いtrialが全体のスコアとみなされる。
 
-=== Challenge 4: Pass endurance
+=== 課題4：パス持続性（pass endurance）
 
-==== Objective
+==== 目的
 
-This challenge focuses on pass endurance and efficiency of robots. For best results, a team must be able to kick and receive the ball precisely, fast and often. This is not only challenging for the software, but also for the mechanics of the robot.
+本課題では、パスの持久性とロボットの効率に注目する。最良の結果のためには、チームはボールのキックとレシーブを正確かつ迅速に、多くの回数（often）行うことができなければならない。これはソフトウェア面に対する課題であるだけでなく、ロボットの高額に対する課題でもある。
 
-Within a limited time, the team is asked to perform as many passes as possible. The team that performed the most passes wins.
+限られた時間の中で、チームはできるだけ多くのパスを成功（perform）させることが求められる。パスを一番多く成功させたチームが勝利する。
 
-==== Procedure
+==== 進行
 
-- The team places all robots on the middle line and the ball on the center point.
-- A FORCE_START command will be issued and the timer will start.
-- After *5min* a HALT command will be issued and the challenge is over.
+- 参加チームはすべてのロボットをミドル・ラインに設置し、ボールをセンター・ポイントに置く。
+- FORCE STARTコマンドが発信され、タイマーがスタートする。
+- 5分後、HALTコマンドが発信され、課題が終了する。
 
-==== Rules
+==== ルール
 
-Teams are free in how they perform the passes, as long as the following constraints are met:
+チームは次の制約を満たしている限り、どのようなパスを行うのかについて自由である：
 
-- A valid pass must be at least *1.5m* long.
-- The shooter of the previous pass (valid or invalid) can not be the receiver of the current pass (this means you need *at least 3 robots*).
-- A pass must be directed at least *10°* away from where the last pass (valid or invalid) came from (so two robots can not pass back and forth without changing positions).
-- The ball must not exceed 6.5 m/s (as defined in the tournament rules).
+- 有効となるパスは最低1.5m以上のものである。
+- （有効か無効かに関わらず）直前のパスの出し手（shooter）は、実行中のパスの受け手（receiver）になることができない（これは最低でも3台のロボットが必要なことを意味する）。
+- パスは直前に行われたもの（有効か無効かに関わらず）から最低でも10°以上違う方向に向けられていなけらばならない（そのため、2台のロボットは位置を変えずに打ち合いをすることができない）。
+- ボールの速度は6.5m/sを超えてはならない（大会ルールで定義されているように）。
 
-Additionally, the following rules apply:
+加えて、次のルールが適用される：
 
-- The number of robots is limited to *6 robots*.
-- The minimum field size is *4x3m*, but teams are allowed to play on a larger field if they wish to do so.
-- Even in an event of an invalid pass, the sequence of passes used to validate the rules will assume that all passes were valid. This means that whenever a rule refers to the term previous pass, it can be both a valid or invalid one.
-- Teams are allowed and encouraged to recover the ball from the field boundary.
-- Any human interference, including exchanging robots, reduces the final number of passes by *10*.
+- ロボットの台数は6台までに制限される。
+- フィールドの最小サイズは4x3mだが、希望する場合はチームはそれより大きいフィールドサイズで行うことが認められる。
+- 無効なパスのevent内であっても、それと連続する有効とされたパスはすべてのパスを有効とみなす。これは、ルールが直前のパス（previous pass）という言葉を参照したどんな場合であっても、そのパスは有効または無効の両方となり得る。　　（訳要検証：藤田）
+- チームはフィールドの境界からボールを回収することが認められ、奨励されている。
+- ロボットの交換を含む、人による干渉は、どのような場合であっても、最終的なパス回数から10回を減点する。
 
-==== Evaluation
+==== 評価
 
-The team with most passes wins. If teams have the same number of passes, they will share the better position.
+一番多くパスをしたチームが勝利する。仮に同数のチームがあった場合、そのチームらは優良なポジションをシェアする。
